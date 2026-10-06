@@ -1,0 +1,304 @@
+<!-- 대덕SW마이스터고 면접 대비 문제집(학교이해 2세트 + 기본코딩 3세트) 페이지 -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>대덕SW마이스터고 면접 대비</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2330;--sub:#5b6474;--line:#e3e6eb;--accent:#2457d6;--accent-soft:#e8eefc;--code:#f2f4f7;--ans:#f3f8f1;--ans-line:#cfe3c7}
+@media (prefers-color-scheme:dark){:root{--bg:#14171c;--card:#1d2128;--ink:#e7eaef;--sub:#9aa3b2;--line:#2c323c;--accent:#7aa2ff;--accent-soft:#232c42;--code:#252a33;--ans:#1c2620;--ans-line:#2f4436}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.6;word-break:keep-all}
+header{padding:28px 16px 12px;max-width:760px;margin:0 auto}
+h1{font-size:1.45rem;margin:0 0 4px}
+header p{margin:0;color:var(--sub);font-size:.92rem}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .tabs{display:flex;gap:6px;overflow-x:auto;max-width:760px;margin:0 auto;padding:10px 16px}
+nav button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:.88rem;cursor:pointer;font-family:inherit}
+nav button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+main{max-width:760px;margin:0 auto;padding:16px 16px 48px}
+section{display:none}
+section.on{display:block}
+.set-head{margin:6px 0 14px}
+.set-head h2{font-size:1.15rem;margin:0}
+.set-head span{color:var(--sub);font-size:.88rem}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.q .no{display:inline-block;min-width:28px;font-weight:700;color:var(--accent)}
+.q .tag{display:inline-block;font-size:.72rem;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);margin-left:4px;vertical-align:2px}
+.q p{margin:6px 0}
+pre{background:var(--code);border-radius:8px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.5;margin:8px 0}
+code{font-family:"D2Coding",Consolas,Menlo,monospace}
+details{margin-top:8px}
+summary{cursor:pointer;color:var(--accent);font-size:.9rem;font-weight:600}
+.ans{background:var(--ans);border:1px solid var(--ans-line);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:.93rem}
+.ans ul{margin:4px 0;padding-left:20px}
+footer{max-width:760px;margin:0 auto;padding:0 16px 32px;color:var(--sub);font-size:.8rem}
+footer a{color:var(--sub)}
+</style>
+</head>
+<body>
+<header>
+<h1>대덕SW마이스터고 면접 대비 문제집</h1>
+<p>학교이해 2세트 + 기본코딩 3세트, 각 10문항 · 2027학년도 전형 기준(2차 전형 2026.10.30)</p>
+</header>
+<nav><div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-t="s1">1 학교·전형</button>
+<button role="tab" aria-selected="false" data-t="s2">2 학과·학교생활</button>
+<button role="tab" aria-selected="false" data-t="s3">3 코딩 기초</button>
+<button role="tab" aria-selected="false" data-t="s4">4 조건·반복</button>
+<button role="tab" aria-selected="false" data-t="s5">5 함수·자료구조</button>
+</div></nav>
+<main>
+
+<!-- 세트 1 -->
+<section id="s1" class="on">
+<div class="set-head"><h2>세트 1 · 학교 이해 (학교·입학전형)</h2><span>학교를 제대로 알고 왔는지 보는 질문</span></div>
+
+<div class="q"><span class="no">1.</span>우리 학교를 한 문장으로 소개해 보세요.
+<details><summary>모범답안 보기</summary><div class="ans">2015년 개교한 <b>국내 최초의 소프트웨어 마이스터고</b>로, 과학기술정보통신부가 참여해 대덕연구단지(대전 유성구)에서 산업 수요에 맞는 SW 인재를 기르는 학교입니다.<ul><li>핵심 단어: 국내 최초, SW 마이스터고, 과기정통부, 산업수요 맞춤형</li></ul></div></details></div>
+
+<div class="q"><span class="no">2.</span>마이스터고는 일반고·특성화고와 무엇이 다르다고 생각하나요?
+<details><summary>모범답안 보기</summary><div class="ans">마이스터고는 특정 산업 분야의 <b>전문 기술인(마이스터) 양성과 취업</b>을 목표로 산업체 수요에 맞춘 교육과정을 운영합니다. 대학 진학이 중심인 일반고와 다르고, 특성화고보다 분야가 더 좁고 깊습니다. 저는 졸업 후 바로 SW 개발자로 일하고 싶어 이 학교를 선택했습니다.</div></details></div>
+
+<div class="q"><span class="no">3.</span>우리 학교 교훈이 무엇인지 알고 있나요? 어떻게 실천하겠어요?
+<details><summary>모범답안 보기</summary><div class="ans">교훈은 <b>‘창의’</b>입니다. 주어진 과제를 그대로 따라 하기보다, 생활 속 불편함을 찾아 직접 프로그램으로 해결해 보는 방식으로 실천하겠습니다. (자기 경험 한 가지를 붙이면 좋음)</div></details></div>
+
+<div class="q"><span class="no">4.</span>교목과 교화를 알고 있나요?
+<details><summary>모범답안 보기</summary><div class="ans">교목은 <b>대나무</b>, 교화는 <b>장미</b>입니다. 대나무는 곧고 강인한 품격, 장미는 아름다움과 희망찬 미래를 뜻한다고 알고 있습니다.</div></details></div>
+
+<div class="q"><span class="no">5.</span>이번 입학 전형은 어떻게 진행되는지 설명해 보세요.
+<details><summary>모범답안 보기</summary><div class="ans"><ul><li>1차: 내신 성적(교과·출석·봉사·가산점)으로 정원의 200% 선발</li><li>2차: 직업기초 소양평가 + 심층면접 (마이스터 인재 전형은 컴퓨팅 사고력 측정 추가)</li><li>모집 정원 64명(4학급), 일반전형 52명·특별전형 12명</li><li>2차 전형 때 흡연검사도 실시</li></ul></div></details></div>
+
+<div class="q"><span class="no">6.</span>심층면접에서 학교는 무엇을 보려고 한다고 생각하나요?
+<details><summary>모범답안 보기</summary><div class="ans">전형요강에 따르면 <b>학교생활 자세, 학업 의지, 소프트웨어 이해도, SW에 대한 열정과 발전 가능성</b>을 봅니다. 그래서 저는 지금 실력보다 꾸준히 배워 온 과정과 앞으로의 계획을 보여 드리고 싶습니다.</div></details></div>
+
+<div class="q"><span class="no">7.</span>전교생이 기숙사 생활을 합니다. 룸메이트와 생활 습관이 달라 갈등이 생기면 어떻게 하겠어요?
+<details><summary>모범답안 보기</summary><div class="ans">감정이 쌓이기 전에 대화로 서로 불편한 점을 말하고, 취침·소등 시간 같은 규칙을 함께 정하겠습니다. 그래도 해결이 안 되면 사감 선생님께 도움을 요청하겠습니다. 공동생활은 협업 능력을 기르는 기회라고 생각합니다.</div></details></div>
+
+<div class="q"><span class="no">8.</span>지원 자격에 ‘전공 분야에 취업할 목적의식’이 있습니다. 졸업 후 계획을 말해 보세요.
+<details><summary>모범답안 보기</summary><div class="ans">졸업 후 SW 기업에 개발자로 취업해 현장 경험을 쌓고, 일하면서 필요한 공부는 재직자 전형 등으로 이어 가고 싶습니다. (‘선취업 후진학’ 방향을 말하고, 대학 진학만 목표라는 인상은 피하기)</div></details></div>
+
+<div class="q"><span class="no">9.</span>금연동의서와 흡연검사를 요구하는 이유는 무엇이라고 생각하나요?
+<details><summary>모범답안 보기</summary><div class="ans">전교생이 함께 생활하는 기숙학교이고, 학생은 졸업 후 곧 사회인이 되기 때문에 건강과 기본 생활 태도를 중요하게 보는 것이라고 생각합니다. 저는 당연히 지킬 수 있습니다.</div></details></div>
+
+<div class="q"><span class="no">10.</span>우리 학교에 대해 어떻게 알게 되었고, 무엇을 찾아봤나요?
+<details><summary>모범답안 보기</summary><div class="ans">(본인 경험으로) 예) 학교 홈페이지와 입학설명회, 유튜브 공식 채널에서 학과 소개와 전공 동아리 활동을 봤습니다. 학생들이 입학 전형 프로그램이나 학교 생활 관리 프로그램을 직접 만들어 쓴다는 점이 인상 깊었습니다.</div></details></div>
+</section>
+
+<!-- 세트 2 -->
+<section id="s2">
+<div class="set-head"><h2>세트 2 · 학교 이해 (학과·교육과정·학교생활)</h2><span>입학 후 무엇을 배우고 어떻게 생활할지 묻는 질문</span></div>
+
+<div class="q"><span class="no">1.</span>1학년 때는 어떻게 배우고, 학과는 언제 정하나요? 학과 이름을 말해 보세요.
+<details><summary>모범답안 보기</summary><div class="ans">1학년은 <b>공통과정</b>으로 기초를 배우고, <b>2학년 진급 때</b> 적성과 희망에 따라 학과를 선택합니다.<ul><li>소프트웨어개발과 (2학급 32명)</li><li>임베디드소프트웨어과 (1학급 16명)</li><li>인공지능소프트웨어과 (1학급 16명)</li></ul></div></details></div>
+
+<div class="q"><span class="no">2.</span>1학년 공통과정에서 가장 기대되는 과목은 무엇인가요?
+<details><summary>모범답안 보기</summary><div class="ans">공통과목은 컴퓨터구조, 프로그래밍 C, 웹프로그래밍 기초(HTML·CSS·JavaScript), 자료구조와 알고리즘, 인공지능 프로그래밍(파이썬)입니다. 예) 저는 <b>자료구조와 알고리즘</b>이 기대됩니다. 같은 문제도 더 빠르게 푸는 방법을 배우는 과목이라 실력의 기초가 된다고 생각합니다.</div></details></div>
+
+<div class="q"><span class="no">3.</span>소프트웨어개발과는 어떤 인재를 기르는 학과인가요?
+<details><summary>모범답안 보기</summary><div class="ans">사용자 요구에 맞게 SW를 <b>분석·설계·구현·시험·유지보수</b>하는 <b>응용 SW 개발자</b>를 기릅니다. 재학 중 정보처리기능사, 정보기기운용기능사 취득을 목표로 합니다.</div></details></div>
+
+<div class="q"><span class="no">4.</span>임베디드소프트웨어과는 무엇을 배우나요? 생활 속 임베디드 예를 들어 보세요.
+<details><summary>모범답안 보기</summary><div class="ans">SW와 HW를 함께 이해하고 <b>펌웨어·OS·플랫폼·응용 SW</b>를 개발하는 임베디드SW 개발자를 기릅니다. 예시로 세탁기, 전자레인지, 스마트워치, 자동차 제어장치처럼 기기 안에 들어가 특정 기능을 하는 프로그램이 있습니다.</div></details></div>
+
+<div class="q"><span class="no">5.</span>인공지능소프트웨어과에 대해 알고 있는 것을 말해 보세요.
+<details><summary>모범답안 보기</summary><div class="ans">2023학년도에 정보보안과가 인공지능SW과로 바뀌었습니다. <b>인공지능과 빅데이터</b>를 바탕으로 AI 서비스 개발자, 데이터 시각화 전문가 등을 기르고, 재학 중 정보처리기능사·SQLD·ADsP 취득을 목표로 합니다.</div></details></div>
+
+<div class="q"><span class="no">6.</span>세 학과 중 어디를 희망하고, 그 이유는 무엇인가요?
+<details><summary>모범답안 보기</summary><div class="ans">(본인 답) 구조: <b>희망 학과 → 계기가 된 경험 → 그 학과에서 하고 싶은 것 → 졸업 후 직무</b>. 단, 학과는 2학년에 정하므로 “1학년 공통과정을 열심히 해 보고 최종 결정하겠다”는 열린 자세를 함께 말하면 좋습니다.</div></details></div>
+
+<div class="q"><span class="no">7.</span>전공 동아리에 들어간다면 어떤 프로젝트를 해 보고 싶나요?
+<details><summary>모범답안 보기</summary><div class="ans">예) 기숙사 생활에서 필요한 세탁기 예약이나 분실물 게시판 같은 웹 서비스를 친구들과 만들어 실제로 써 보고 싶습니다. 학교 선배들도 학교 생활 관리 프로그램을 직접 개발해 쓰고 있다고 들었습니다.</div></details></div>
+
+<div class="q"><span class="no">8.</span>팀 프로젝트에서 한 팀원이 맡은 일을 하지 않는다면 어떻게 하겠어요?
+<details><summary>모범답안 보기</summary><div class="ans">먼저 따로 이야기를 나눠 이유를 듣겠습니다. 어려워서 못 하는 것이라면 함께 해결 방법을 찾고, 역할을 다시 나누겠습니다. 그래도 안 되면 선생님과 상의하겠습니다. 비난보다 프로젝트를 완성하는 것이 목표라고 생각합니다.</div></details></div>
+
+<div class="q"><span class="no">9.</span>입학 후 수업을 따라가기 어려워 뒤처진다면 어떻게 하겠어요?
+<details><summary>모범답안 보기</summary><div class="ans">모르는 것을 그대로 두지 않고 선생님과 선배에게 질문하겠습니다. 야간 자율학습 시간에 그날 배운 코드를 다시 직접 쳐 보고, 막힌 부분은 기록해 두었다가 해결하겠습니다.</div></details></div>
+
+<div class="q"><span class="no">10.</span>합격한다면 입학 전까지 무엇을 준비하겠어요?
+<details><summary>모범답안 보기</summary><div class="ans">1학년에 C언어를 배우므로 <b>C 기초 문법(변수, 조건문, 반복문, 배열)</b>을 미리 공부하고, 간단한 알고리즘 문제를 꾸준히 풀겠습니다. 기숙사 생활을 위해 규칙적인 생활 습관도 만들겠습니다.</div></details></div>
+</section>
+
+<!-- 세트 3 -->
+<section id="s3">
+<div class="set-head"><h2>세트 3 · 기본 코딩 (개념·연산)</h2><span>구술 질문 + 코드 보고 답하기 (Python/C)</span></div>
+
+<div class="q"><span class="no">1.</span><span class="tag">구술</span><p>프로그래밍 언어란 무엇이고, 왜 필요한가요?</p>
+<details><summary>모범답안 보기</summary><div class="ans">사람이 컴퓨터에게 할 일을 명령하기 위해 만든 약속된 언어입니다. 컴퓨터는 0과 1만 이해하므로, 사람이 이해하기 쉬운 언어로 작성한 뒤 기계어로 바꿔 실행합니다.</div></details></div>
+
+<div class="q"><span class="no">2.</span><span class="tag">구술</span><p>컴파일러와 인터프리터의 차이를 설명해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans"><ul><li>컴파일러: 전체 코드를 한 번에 기계어로 번역한 뒤 실행 (예: C) → 실행이 빠름</li><li>인터프리터: 한 줄씩 번역하며 바로 실행 (예: Python) → 결과 확인이 쉬움</li></ul></div></details></div>
+
+<div class="q"><span class="no">3.</span><span class="tag">구술</span><p>변수란 무엇인가요? 생활 속 비유로 설명해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans">데이터를 저장하는 <b>이름 붙은 메모리 공간</b>입니다. 이름표가 붙은 상자에 값을 넣어 두고, 필요할 때 이름으로 꺼내 쓰거나 다른 값으로 바꿀 수 있습니다.</div></details></div>
+
+<div class="q"><span class="no">4.</span><span class="tag">코드</span><p>출력 결과는? (Python)</p>
+<pre><code>a = 7
+b = 2
+print(a // b, a % b, a / b)</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>3 1 3.5</b><ul><li><code>//</code> 몫, <code>%</code> 나머지, <code>/</code> 실수 나눗셈</li></ul></div></details></div>
+
+<div class="q"><span class="no">5.</span><span class="tag">코드</span><p>출력 결과는? (Python) 왜 그렇게 되나요?</p>
+<pre><code>x = "3"
+y = 4
+print(x * y)
+print(int(x) + y)</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>3333</b> 다음 줄에 <b>7</b><ul><li><code>x</code>는 문자열이라 <code>* 4</code>는 문자열을 4번 반복</li><li><code>int(x)</code>로 정수로 바꾸면 덧셈 3 + 4</li><li>핵심은 <b>자료형(문자열 vs 정수)</b>의 차이</li></ul></div></details></div>
+
+<div class="q"><span class="no">6.</span><span class="tag">구술</span><p>정수, 실수, 문자열, 불(bool) 자료형의 차이를 예와 함께 말해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans"><ul><li>정수(int): 10, -3</li><li>실수(float): 3.14</li><li>문자열(str): "hello"</li><li>불(bool): True / False, 조건 판단에 사용</li></ul></div></details></div>
+
+<div class="q"><span class="no">7.</span><span class="tag">구술</span><p>코드에서 <code>=</code>와 <code>==</code>는 어떻게 다른가요?</p>
+<details><summary>모범답안 보기</summary><div class="ans"><code>=</code>는 오른쪽 값을 왼쪽 변수에 <b>대입</b>, <code>==</code>는 두 값이 <b>같은지 비교</b>해 참/거짓을 돌려줍니다. 수학의 등호와 다르다는 점이 중요합니다.</div></details></div>
+
+<div class="q"><span class="no">8.</span><span class="tag">코드</span><p>출력 결과는? (C)</p>
+<pre><code>int a = 5;
+a += 3;
+a *= 2;
+printf("%d", a);</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>16</b><ul><li>a = 5 → a += 3 → 8 → a *= 2 → 16</li></ul></div></details></div>
+
+<div class="q"><span class="no">9.</span><span class="tag">구술</span><p>10진수 13을 2진수로 바꿔 보고, 컴퓨터가 2진수를 쓰는 이유를 말해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans"><b>1101</b> (8 + 4 + 0 + 1 = 13)<br>컴퓨터는 전기가 흐름/안 흐름 두 상태로 동작하므로 0과 1, 두 가지로 표현하는 2진수가 가장 안정적입니다.</div></details></div>
+
+<div class="q"><span class="no">10.</span><span class="tag">구술</span><p>프로그램에 오류(버그)가 났을 때 어떻게 찾고 고치나요?</p>
+<details><summary>모범답안 보기</summary><div class="ans">먼저 오류 메시지를 읽고 몇 번째 줄인지 확인합니다. 중간중간 변수 값을 출력해 예상과 다른 지점을 찾고, 코드를 작은 단위로 나눠 하나씩 실행해 봅니다. 고친 뒤에는 다른 입력으로도 다시 시험합니다. (직접 겪은 사례를 붙이면 좋음)</div></details></div>
+</section>
+
+<!-- 세트 4 -->
+<section id="s4">
+<div class="set-head"><h2>세트 4 · 기본 코딩 (조건문·반복문)</h2><span>구술 질문 + 코드 보고 답하기 (Python/C)</span></div>
+
+<div class="q"><span class="no">1.</span><span class="tag">구술</span><p>조건문은 왜 필요한가요? 예를 들어 설명해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans">상황에 따라 다른 동작을 하게 만들기 위해서입니다. 예) 비밀번호가 맞으면 로그인, 틀리면 “다시 입력” 메시지를 보여 주는 것.</div></details></div>
+
+<div class="q"><span class="no">2.</span><span class="tag">코드</span><p>출력 결과는? (Python)</p>
+<pre><code>score = 85
+if score >= 90:
+    print("A")
+elif score >= 80:
+    print("B")
+else:
+    print("C")</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>B</b><ul><li>85는 90 미만이라 첫 조건 거짓, 80 이상이라 두 번째 조건에서 멈춤</li></ul></div></details></div>
+
+<div class="q"><span class="no">3.</span><span class="tag">구술</span><p>for문과 while문은 언제 각각 쓰나요?</p>
+<details><summary>모범답안 보기</summary><div class="ans"><ul><li>for: 반복 <b>횟수가 정해져</b> 있을 때 (1부터 10까지)</li><li>while: <b>조건이 참인 동안</b> 반복할 때 (정답을 맞힐 때까지)</li></ul></div></details></div>
+
+<div class="q"><span class="no">4.</span><span class="tag">코드</span><p>출력 결과는? (Python)</p>
+<pre><code>s = 0
+for i in range(1, 6):
+    s += i
+print(s)</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>15</b><ul><li><code>range(1, 6)</code>은 1~5 (6은 포함 안 됨) → 1+2+3+4+5</li></ul></div></details></div>
+
+<div class="q"><span class="no">5.</span><span class="tag">코드</span><p>출력 결과는? (Python)</p>
+<pre><code>for i in range(0, 10, 3):
+    print(i, end=' ')</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>0 3 6 9</b><ul><li>0부터 3씩 증가, 10 전까지</li></ul></div></details></div>
+
+<div class="q"><span class="no">6.</span><span class="tag">코드</span><p>출력 결과는? (C)</p>
+<pre><code>int i = 0;
+while (i &lt; 5) {
+    i += 2;
+}
+printf("%d", i);</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>6</b><ul><li>i: 0 → 2 → 4 → 6, 6은 5보다 작지 않으므로 반복 종료</li></ul></div></details></div>
+
+<div class="q"><span class="no">7.</span><span class="tag">구술</span><p>무한 루프란 무엇이고, 어떻게 막을 수 있나요?</p>
+<details><summary>모범답안 보기</summary><div class="ans">반복 조건이 계속 참이라 끝나지 않는 반복입니다. 반복 안에서 조건에 쓰이는 변수가 바뀌도록 하거나, 특정 조건에서 <code>break</code>로 빠져나오게 해서 막습니다.</div></details></div>
+
+<div class="q"><span class="no">8.</span><span class="tag">코드</span><p>출력 결과는? <code>break</code>와 <code>continue</code>의 차이도 말해 보세요. (Python)</p>
+<pre><code>for i in range(1, 8):
+    if i % 2 == 0:
+        continue
+    if i &gt; 5:
+        break
+    print(i, end=' ')</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>1 3 5</b><ul><li>짝수는 <code>continue</code>로 건너뜀, 7에서 <code>break</code>로 반복 종료</li><li>continue: 이번 반복만 건너뜀 / break: 반복 전체를 끝냄</li></ul></div></details></div>
+
+<div class="q"><span class="no">9.</span><span class="tag">코드</span><p>안쪽 반복이 몇 번 실행될까요? (Python)</p>
+<pre><code>c = 0
+for i in range(3):
+    for j in range(4):
+        c += 1
+print(c)</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>12</b><ul><li>바깥 3번 × 안쪽 4번 = 12 (중첩 반복)</li></ul></div></details></div>
+
+<div class="q"><span class="no">10.</span><span class="tag">구술</span><p>입력받은 수가 짝수인지 홀수인지 판별하는 방법을 말로 설명해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans">수를 2로 나눈 <b>나머지</b>를 구해, 0이면 짝수, 1이면 홀수로 판단합니다. 코드로는 <code>if n % 2 == 0</code> 입니다.</div></details></div>
+</section>
+
+<!-- 세트 5 -->
+<section id="s5">
+<div class="set-head"><h2>세트 5 · 기본 코딩 (함수·배열·알고리즘)</h2><span>구술 질문 + 코드 보고 답하기 (Python/C)</span></div>
+
+<div class="q"><span class="no">1.</span><span class="tag">구술</span><p>함수를 쓰는 이유는 무엇인가요?</p>
+<details><summary>모범답안 보기</summary><div class="ans">자주 쓰는 코드를 묶어 이름을 붙여 두고 <b>재사용</b>하기 위해서입니다. 코드가 짧고 읽기 쉬워지며, 고칠 때도 한 곳만 고치면 됩니다.</div></details></div>
+
+<div class="q"><span class="no">2.</span><span class="tag">코드</span><p>출력 결과는? (Python)</p>
+<pre><code>def add(a, b):
+    return a + b
+
+print(add(3, 4) * 2)</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>14</b><ul><li>add(3, 4)가 7을 돌려주고(return), 7 × 2</li></ul></div></details></div>
+
+<div class="q"><span class="no">3.</span><span class="tag">코드</span><p>출력 결과는? (Python)</p>
+<pre><code>nums = [4, 8, 15, 16, 23, 42]
+print(nums[2], nums[-1], len(nums))</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>15 42 6</b><ul><li>인덱스는 <b>0부터</b> 시작 → nums[2]는 세 번째 값</li><li>-1은 마지막 값, len은 개수</li></ul></div></details></div>
+
+<div class="q"><span class="no">4.</span><span class="tag">구술</span><p><code>max()</code>를 쓰지 않고 리스트에서 가장 큰 값을 찾는 방법을 설명해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans">첫 번째 값을 일단 최댓값으로 정하고, 나머지 값을 하나씩 비교해 더 큰 값이 나오면 최댓값을 바꿉니다. 끝까지 비교하면 남은 값이 최댓값입니다.
+<pre><code>m = nums[0]
+for n in nums:
+    if n &gt; m:
+        m = n</code></pre></div></details></div>
+
+<div class="q"><span class="no">5.</span><span class="tag">코드</span><p>출력 결과는? (C)</p>
+<pre><code>int a[5] = {1, 2, 3, 4, 5};
+int s = 0;
+for (int i = 0; i &lt; 5; i++)
+    if (a[i] % 2 == 1)
+        s += a[i];
+printf("%d", s);</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>9</b><ul><li>홀수만 더함 → 1 + 3 + 5</li></ul></div></details></div>
+
+<div class="q"><span class="no">6.</span><span class="tag">구술</span><p>1~100 사이 숫자 맞히기(업다운) 게임을 가장 빨리 이기는 방법은? 최대 몇 번이면 맞힐 수 있나요?</p>
+<details><summary>모범답안 보기</summary><div class="ans">항상 남은 범위의 <b>가운데 값</b>을 말해 범위를 절반씩 줄입니다(<b>이진 탐색</b>). 2⁷ = 128 ≥ 100 이므로 <b>최대 7번</b>이면 맞힙니다. 처음부터 하나씩 말하는 선형 탐색은 최대 100번이 걸립니다.</div></details></div>
+
+<div class="q"><span class="no">7.</span><span class="tag">코드</span><p>버블 정렬의 원리를 설명하고, [5, 2, 9, 1]에 1회전을 하면 어떻게 되는지 말해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans">이웃한 두 값을 비교해 순서가 틀리면 자리를 바꾸는 과정을 반복합니다. 1회전이 끝나면 가장 큰 값이 맨 뒤로 갑니다.<br>5↔2 교환 → [2,5,9,1], 5와 9 그대로, 9↔1 교환 → <b>[2, 5, 1, 9]</b></div></details></div>
+
+<div class="q"><span class="no">8.</span><span class="tag">코드</span><p><code>f(4)</code>의 값은? 이런 함수를 무엇이라 하나요? (Python)</p>
+<pre><code>def f(n):
+    if n &lt;= 1:
+        return 1
+    return n * f(n - 1)</code></pre>
+<details><summary>모범답안 보기</summary><div class="ans"><b>24</b> (4 × 3 × 2 × 1, 팩토리얼)<br>자기 자신을 다시 부르는 <b>재귀 함수</b>입니다. 멈추는 조건(n ≤ 1)이 없으면 끝없이 호출됩니다.</div></details></div>
+
+<div class="q"><span class="no">9.</span><span class="tag">구술</span><p>스택과 큐의 차이를 생활 속 예로 설명해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans"><ul><li>스택: 나중에 넣은 것이 먼저 나옴(LIFO). 예) 쌓인 접시, 웹 브라우저 뒤로 가기, 실행 취소(Ctrl+Z)</li><li>큐: 먼저 넣은 것이 먼저 나옴(FIFO). 예) 급식 줄, 프린터 인쇄 대기</li></ul></div></details></div>
+
+<div class="q"><span class="no">10.</span><span class="tag">구술</span><p>지금까지 만들어 본 프로그램 중 하나를 소개하고, 가장 어려웠던 점과 해결 방법을 말해 보세요.</p>
+<details><summary>모범답안 보기</summary><div class="ans">(본인 경험) 구조: <b>무엇을 만들었나 → 왜 만들었나 → 막혔던 부분 → 어떻게 해결했나 → 다음에 더하고 싶은 기능</b>. 심층면접의 ‘SW 이해도·열정·발전 가능성’을 한 번에 보여 줄 수 있는 질문이므로 1분 분량으로 미리 연습합니다.</div></details></div>
+</section>
+</main>
+<footer>
+학교 정보 출처: <a href="https://dsmhs.djsch.kr/sub/info.do?m=0614&s=dsmhs">2027학년도 신입생 전형요강</a>, <a href="https://dsmhs.djsch.kr/sub/info.do?m=0301&s=dsmhs">학과소개</a> (대덕소프트웨어마이스터고 홈페이지). 전형 내용은 바뀔 수 있으니 최종 요강을 꼭 확인하세요.
+</footer>
+<script>
+document.querySelectorAll('nav button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('nav button').forEach(function(x){x.setAttribute('aria-selected','false')});
+    document.querySelectorAll('section').forEach(function(s){s.classList.remove('on')});
+    b.setAttribute('aria-selected','true');
+    document.getElementById(b.dataset.t).classList.add('on');
+    window.scrollTo(0,0);
+  });
+});
+</script>
+</body>
+</html>
