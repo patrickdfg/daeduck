@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="조건 판단, 순서 추론, 이진 탐색을 연습하는 20문제 알고리즘 사고력 워크북">
+<title>알고리즘 사고력 워크북 | 20문제</title>
+<style>
+:root{--navy:#18334d;--teal:#008f8b;--ink:#243543;--muted:#647687;--line:#c9d7df;--pale:#f1f7f8;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f9fa;color:var(--ink);font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;line-height:1.65}
+button,textarea{font:inherit}a{color:inherit}.skip{position:absolute;left:-9999px;top:8px;background:var(--white);padding:8px;z-index:5}.skip:focus{left:8px}
+.hero{background:var(--navy);color:var(--white)}.hero-inner{max-width:1180px;margin:auto;padding:60px 28px 55px}.eyebrow{display:inline-block;padding:5px 13px;border-radius:999px;background:var(--teal);font-size:.78rem;font-weight:800;letter-spacing:.02em}.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.18;margin:22px 0 13px;letter-spacing:-.055em}.hero p{max-width:650px;margin:0;color:#dae8ef}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:27px}.button{border:1px solid #aec5d0;border-radius:8px;padding:9px 15px;min-height:42px;background:transparent;color:var(--white);text-decoration:none;cursor:pointer;font-weight:700}.button.primary{background:var(--teal);border-color:var(--teal)}.button:hover,.button:focus-visible{outline:2px solid #82d5d2;outline-offset:2px}.hero .meta{margin-top:25px;font-size:.88rem;color:#b8cfda}
+.layout{max-width:1180px;margin:0 auto;padding:34px 28px 75px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px}.sidebar{align-self:start;position:sticky;top:20px;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 8px 28px rgba(24,51,77,.04)}.sidebar h2{font-size:.94rem;margin:0 0 13px}.sidebar nav{display:grid;gap:7px}.sidebar a{text-decoration:none;color:var(--muted);padding:8px 10px;border-radius:7px;font-size:.91rem}.sidebar a:hover,.sidebar a:focus-visible{background:var(--pale);color:var(--navy)}.progress{border-top:1px solid var(--line);margin-top:17px;padding-top:16px}.progress-label{display:flex;justify-content:space-between;font-size:.84rem;font-weight:700}.progress progress{width:100%;height:12px;accent-color:var(--teal);margin:8px 0 0}.sidebar small{display:block;color:var(--muted);line-height:1.5;margin-top:7px}
+.content{min-width:0}.intro{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:44px}.intro h2{font-size:1.13rem;margin:0 0 7px}.intro p{margin:0;color:var(--muted)}.workbook-section{scroll-margin-top:25px;margin-bottom:65px}.section-heading{display:flex;align-items:flex-start;gap:15px;border-bottom:2px solid var(--navy);padding-bottom:16px;margin-bottom:21px}.section-number{flex:none;color:var(--teal);font-size:1.25rem;font-weight:900}.section-heading h2{margin:0;color:var(--navy);font-size:1.55rem;line-height:1.3;letter-spacing:-.035em}.section-heading p{color:var(--muted);margin:5px 0 0;font-size:.92rem}
+.reference{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:20px}.reference h3{margin:0 0 8px;color:var(--navy);font-size:1.08rem}.reference p{margin:0 0 15px}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:center;min-width:480px;font-variant-numeric:tabular-nums}caption{text-align:left;color:var(--muted);font-size:.8rem;margin-bottom:6px}th,td{border:1px solid var(--line);padding:7px 9px}thead th,tbody th:first-child{background:var(--navy);color:var(--white);font-weight:700}tbody tr:nth-child(even) td{background:var(--pale)}.conditions{list-style:none;counter-reset:condition;padding:0;margin:9px 0 0;display:grid;gap:5px}.conditions li{counter-increment:condition;padding:5px 0 5px 35px;position:relative}.conditions li::before{content:counter(condition,decimal-leading-zero);position:absolute;left:0;top:6px;color:var(--teal);font-weight:800;font-size:.85rem}.rule{margin-top:16px;padding:12px 15px;border-left:4px solid var(--teal);background:var(--pale);display:grid;gap:4px;font-size:.91rem}code{background:var(--pale);padding:2px 4px;border-radius:4px;color:var(--navy)}
+.questions{display:grid;gap:17px}.question{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px 22px;break-inside:avoid}.question-heading{display:flex;align-items:flex-start;gap:13px}.number{display:flex;align-items:center;justify-content:center;flex:none;background:var(--teal);color:var(--white);width:35px;height:35px;border-radius:50%;font-weight:900;font-size:.85rem}.question h3{margin:2px 0 13px;font-size:1rem;line-height:1.62;font-weight:700}.answer-label{display:block;margin:0 0 6px;color:var(--muted);font-size:.8rem;font-weight:700}.question textarea{display:block;width:100%;resize:vertical;min-height:90px;padding:11px 12px;border:1px solid var(--line);border-radius:7px;color:var(--ink);background:#fcfefe;line-height:1.5}.question textarea:focus{outline:2px solid var(--teal);outline-offset:1px}.question textarea::placeholder{color:#94a5ae}.answer{margin-top:13px;border-top:1px solid var(--line);padding-top:11px}.answer summary{cursor:pointer;color:var(--teal);font-weight:800;font-size:.87rem;list-style-position:inside}.answer-body{margin-top:10px;border-radius:7px;background:var(--pale);padding:12px 14px}.answer-body strong{color:var(--navy)}.answer-body p{margin:5px 0 0;color:var(--muted);font-size:.9rem}.endnote{margin-top:12px;color:var(--muted);font-size:.86rem}.footer{background:var(--navy);color:#d8e5eb;text-align:center;padding:23px;font-size:.82rem}
+@media(max-width:800px){.layout{display:block;padding:22px 16px 55px}.sidebar{position:static;margin-bottom:25px}.sidebar nav{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-inner{padding:45px 20px}.reference,.question{padding:17px}.section-heading h2{font-size:1.35rem}}
+@media(max-width:520px){.sidebar nav{grid-template-columns:1fr}.hero-actions{display:grid}.button{text-align:center}.question-heading{gap:9px}.question h3{font-size:.94rem}}
+@media print{@page{size:A4;margin:15mm}body{background:#fff;color:#000;font-size:10pt}.hero{background:#fff;color:#000;border-bottom:2px solid #333}.hero-inner{padding:0 0 14px}.eyebrow,.hero-actions,.meta,.sidebar,.footer,.answer,.endnote{display:none!important}.hero h1{font-size:23pt;margin:0 0 6px}.hero p{color:#333}.layout{display:block;max-width:none;padding:16px 0}.intro{margin:0 0 15px;border:0;padding:0}.workbook-section{margin-bottom:25px;break-before:page}.workbook-section:first-of-type{break-before:auto}.section-heading{margin-bottom:11px;padding-bottom:8px}.reference{padding:9px 12px;margin-bottom:11px}.reference h3{margin-bottom:4px}.reference p{margin-bottom:6px}.conditions{gap:0}.conditions li{padding-top:1px;padding-bottom:1px}.rule{margin-top:8px}.questions{gap:10px}.question{padding:10px 12px;border-radius:5px}.question h3{font-size:10pt;margin-bottom:5px}.number{background:#fff;color:#000;border:1px solid #000;width:25px;height:25px}.answer-label{display:none}.question textarea{border:0;border-radius:0;resize:none;min-height:55px;background:repeating-linear-gradient(to bottom,#fff 0,#fff 25px,#cbd5d9 26px,#fff 27px);padding:2px 4px}.question textarea::placeholder{color:transparent}table{min-width:0}th,td{padding:4px}.reference,.question{box-shadow:none}}
+</style></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="hero"><div class="hero-inner"><span class="eyebrow">면접형 문제 연습</span><h1>알고리즘 사고력<br>워크북</h1>
+<p>조건 판단 · 순서 추론 · 이진 탐색을 20문제로 연습하세요. 답을 먼저 적고, 정답과 해설을 펼쳐 확인할 수 있습니다.</p>
+<div class="hero-actions"><a class="button primary" href="#part1">문제 풀기</a><button class="button" id="toggle-answers" type="button">정답 모두 펼치기</button><button class="button" type="button" onclick="window.print()">문제 인쇄</button><a class="button" href="algorithm_thinking_workbook.pdf" download>PDF 받기</a></div>
+<p class="meta">20문제 · 3개 영역 · 답안은 이 브라우저에 자동 저장</p></div></header>
+<div class="layout"><aside class="sidebar" aria-label="워크북 탐색"><h2>목차</h2><nav><a href="#part1">01 조건 판단과 반복문</a><a href="#part2">02 등교 순서 추론</a><a href="#part3">03 이진 탐색</a></nav>
+<div class="progress"><div class="progress-label"><span>작성한 답안</span><span id="progress-text">0 / 20</span></div><progress id="progress-bar" max="20" value="0">0 / 20</progress><small>작성한 답은 현재 브라우저에만 저장됩니다.</small></div></aside>
+<main class="content" id="main"><div class="intro"><h2>이렇게 활용하세요</h2><p>① 자료를 읽고 내 답안을 적습니다. ② 조건을 하나씩 대입해 검산합니다. ③ 각 문항의 정답·해설을 펼쳐 확인합니다. 인쇄할 때는 정답이 숨겨집니다.</p></div>
+<section class="workbook-section" id="part1" aria-labelledby="part1-title">
+      <div class="section-heading"><span class="section-number">01</span><div><h2 id="part1-title">조건 판단과 반복문</h2><p>조건식을 만들고, 첫 번째 정답을 찾는 반복 과정과 경계값을 확인합니다.</p></div></div>
+      <div class="reference"><h3>자료: 인형 고르기</h3>
+        <p>1번부터 차례로 확인합니다. <strong>크기 1m 이상, 무게 2kg 이하, 가격 1만 원 이하</strong>인 첫 인형을 찾으면 번호를 출력하고 즉시 종료합니다. 끝까지 찾지 못하면 ‘실패’를 출력합니다.</p>
+        <div class="table-scroll"><table><caption>인형 목록</caption><thead><tr><th>번호</th><th>크기(m)</th><th>무게(kg)</th><th>가격(원)</th></tr></thead><tbody>
+        <tr><th>1</th><td>0.8</td><td>1.5</td><td>7,000</td></tr><tr><th>2</th><td>1.2</td><td>2.5</td><td>6,000</td></tr>
+        <tr><th>3</th><td>1.0</td><td>2.0</td><td>10,000</td></tr><tr><th>4</th><td>1.3</td><td>1.8</td><td>12,000</td></tr>
+        <tr><th>5</th><td>1.1</td><td>1.9</td><td>9,500</td></tr><tr><th>6</th><td>1.4</td><td>1.7</td><td>8,000</td></tr>
+        </tbody></table></div></div><div class="questions"><article class="question" id="q-1">
+      <div class="question-heading"><span class="number">01</span><h3>인형이 조건에 맞는지 판단하는 논리식을 ‘그리고(AND)’를 사용해 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-1">내 답안</label>
+      <textarea id="answer-1" data-answer="1" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>크기 ≥ 1 AND 무게 ≤ 2 AND 가격 ≤ 10000</strong><p>세 조건을 모두 만족해야 합니다.</p></div></details>
+    </article>
+<article class="question" id="q-2">
+      <div class="question-heading"><span class="number">02</span><h3>조건에 맞는 인형의 번호를 모두 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-2">내 답안</label>
+      <textarea id="answer-2" data-answer="2" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>3, 5, 6번</strong><p>세 인형의 크기, 무게, 가격이 모두 기준에 맞습니다.</p></div></details>
+    </article>
+<article class="question" id="q-3">
+      <div class="question-heading"><span class="number">03</span><h3>설명한 알고리즘은 어떤 번호를 출력하나요? 이유도 간단히 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-3">내 답안</label>
+      <textarea id="answer-3" data-answer="3" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>3번</strong><p>1번과 2번은 탈락하고 3번에서 처음 조건을 만족합니다.</p></div></details>
+    </article>
+<article class="question" id="q-4">
+      <div class="question-heading"><span class="number">04</span><h3>3번 인형은 크기 1.0m, 무게 2.0kg, 가격 10,000원입니다. 이 인형은 조건을 만족하나요?</h3></div>
+      <label class="answer-label" for="answer-4">내 답안</label>
+      <textarea id="answer-4" data-answer="4" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>만족합니다.</strong><p>‘이상·이하’에는 경계값인 1.0, 2.0, 10,000도 포함됩니다.</p></div></details>
+    </article>
+<article class="question" id="q-5">
+      <div class="question-heading"><span class="number">05</span><h3>3번 인형의 가격만 10,001원으로 바꾸면 출력 번호와 확인한 인형 수는 각각 얼마인가요?</h3></div>
+      <label class="answer-label" for="answer-5">내 답안</label>
+      <textarea id="answer-5" data-answer="5" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>5번, 5개</strong><p>3번이 탈락하므로 5번까지 확인합니다.</p></div></details>
+    </article>
+<article class="question" id="q-6">
+      <div class="question-heading"><span class="number">06</span><h3>3번과 5번 인형의 가격을 모두 10,001원으로 바꿨습니다. 반복 조건을 ‘번호 &lt; 6’으로 작성하면 무엇이 출력되나요? 원하는 동작을 하려면 반복 조건을 어떻게 고쳐야 하나요?</h3></div>
+      <label class="answer-label" for="answer-6">내 답안</label>
+      <textarea id="answer-6" data-answer="6" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>‘실패’가 잘못 출력됩니다. ‘번호 ≤ 6’으로 수정합니다.</strong><p>‘번호 &lt; 6’은 6번 인형을 확인하지 않습니다.</p></div></details>
+    </article></div></section>
+<section class="workbook-section" id="part2" aria-labelledby="part2-title">
+      <div class="section-heading"><span class="section-number">02</span><div><h2 id="part2-title">등교 순서 추론</h2><p>조건을 하나씩 대입하고, 조건을 제거했을 때 가능한 순서가 어떻게 바뀌는지 살펴봅니다.</p></div></div>
+      <div class="reference"><h3>자료: 일곱 명의 등교 순서</h3><p>A부터 G까지 일곱 명이 한 명씩 등교했습니다.</p>
+        <ol class="conditions"><li>A와 B 사이에는 한 명이 있습니다.</li><li>C는 B의 바로 전에 등교했습니다.</li>
+        <li>D는 A보다 늦게 등교했습니다.</li><li>E보다 일찍 등교한 사람은 <strong>많아야 두 명</strong>입니다.</li>
+        <li>E가 가장 먼저 등교한 것은 아닙니다.</li><li>F는 D보다 늦게 등교했습니다.</li>
+        <li>G는 F의 바로 뒤에 등교했습니다.</li></ol></div><div class="questions"><article class="question" id="q-7">
+      <div class="question-heading"><span class="number">07</span><h3>E가 등교할 수 있는 순서는 몇 번째 또는 몇 번째인가요? ④, ⑤ 조건만 적용하세요.</h3></div>
+      <label class="answer-label" for="answer-7">내 답안</label>
+      <textarea id="answer-7" data-answer="7" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>2번째 또는 3번째</strong><p>④는 3번째 이내를 뜻하고, ⑤는 1번째를 제외합니다.</p></div></details>
+    </article>
+<article class="question" id="q-8">
+      <div class="question-heading"><span class="number">08</span><h3>‘C-D-A-E-B-F-G’에서 어긋나는 조건을 모두 찾으세요.</h3></div>
+      <label class="answer-label" for="answer-8">내 답안</label>
+      <textarea id="answer-8" data-answer="8" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>②, ③, ④</strong><p>C는 B 바로 앞이 아니고, D는 A보다 빠르며, E는 4번째입니다.</p></div></details>
+    </article>
+<article class="question" id="q-9">
+      <div class="question-heading"><span class="number">09</span><h3>8번의 순서에서 ‘A와 B 사이에는 한 명이 있다’는 조건은 맞나요? 이유도 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-9">내 답안</label>
+      <textarea id="answer-9" data-answer="9" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>맞습니다.</strong><p>A는 3번째, B는 5번째이므로 사이에 E 한 명이 있습니다.</p></div></details>
+    </article>
+<article class="question" id="q-10">
+      <div class="question-heading"><span class="number">10</span><h3>모든 조건을 만족하는 등교 순서를 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-10">내 답안</label>
+      <textarea id="answer-10" data-answer="10" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>C-B-E-A-D-F-G</strong><p>일곱 조건을 차례로 대입하면 모두 성립합니다.</p></div></details>
+    </article>
+<article class="question" id="q-11">
+      <div class="question-heading"><span class="number">11</span><h3>10번의 순서에서 가장 먼저 온 사람과 가장 늦게 온 사람은 누구인가요?</h3></div>
+      <label class="answer-label" for="answer-11">내 답안</label>
+      <textarea id="answer-11" data-answer="11" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>처음 C, 마지막 G</strong><p>완성한 순서 C-B-E-A-D-F-G를 확인합니다.</p></div></details>
+    </article>
+<article class="question" id="q-12">
+      <div class="question-heading"><span class="number">12</span><h3>⑤ ‘E가 가장 먼저 온 것은 아니다’만 제거하면, 기존 정답 외에 가능한 순서를 하나 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-12">내 답안</label>
+      <textarea id="answer-12" data-answer="12" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>예: E-A-C-B-D-F-G</strong><p>E가 첫 번째인 것 외에는 남은 조건을 모두 만족합니다.</p></div></details>
+    </article>
+<article class="question" id="q-13">
+      <div class="question-heading"><span class="number">13</span><h3>④ ‘E보다 일찍 온 사람은 많아야 두 명이다’만 제거하면 ‘A-C-B-D-E-F-G’도 가능한가요? 이유를 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-13">내 답안</label>
+      <textarea id="answer-13" data-answer="13" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>가능합니다.</strong><p>E가 5번째여서 원래 ④만 위반하고, 나머지 조건은 모두 만족합니다.</p></div></details>
+    </article></div></section>
+<section class="workbook-section" id="part3" aria-labelledby="part3-title">
+      <div class="section-heading"><span class="section-number">03</span><div><h2 id="part3-title">이진 탐색</h2><p>start, end, mid가 바뀌는 과정을 적으며 탐색 결과를 예측합니다.</p></div></div>
+      <div class="reference"><h3>자료: 이진 탐색</h3>
+        <p>방 번호는 1부터 시작합니다. 처음에는 <code>start=1</code>, <code>end=7</code>입니다. <code>mid</code>는 <code>(start+end)÷2</code>의 소수점 이하를 버린 값입니다.</p>
+        <div class="table-scroll"><table><caption>정렬된 배열</caption><tbody>
+        <tr><th>방 번호</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+        <tr><th>값</th><td>4</td><td>12</td><td>25</td><td>30</td><td>50</td><td>62</td><td>66</td></tr>
+        </tbody></table></div>
+        <div class="rule"><span>가운데 값이 목표보다 작으면 <code>start=mid+1</code></span>
+        <span>가운데 값이 목표보다 크면 <code>end=mid-1</code></span>
+        <span>같으면 해당 방 번호를 출력하고 종료</span></div></div><div class="questions"><article class="question" id="q-14">
+      <div class="question-heading"><span class="number">14</span><h3>목표값이 50일 때 첫 번째 mid와 그 방의 값은 무엇인가요?</h3></div>
+      <label class="answer-label" for="answer-14">내 답안</label>
+      <textarea id="answer-14" data-answer="14" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>mid=4, 값은 30</strong><p>(1+7)÷2=4이며 array[4]=30입니다.</p></div></details>
+    </article>
+<article class="question" id="q-15">
+      <div class="question-heading"><span class="number">15</span><h3>목표값이 50일 때 첫 번째 비교 직후의 start와 end는 무엇인가요?</h3></div>
+      <label class="answer-label" for="answer-15">내 답안</label>
+      <textarea id="answer-15" data-answer="15" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>start=5, end=7</strong><p>30&lt;50이므로 왼쪽 범위를 제외합니다.</p></div></details>
+    </article>
+<article class="question" id="q-16">
+      <div class="question-heading"><span class="number">16</span><h3>목표값이 50일 때 확인하는 방 번호를 순서대로 쓰고, 최종 결과를 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-16">내 답안</label>
+      <textarea id="answer-16" data-answer="16" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>4 → 6 → 5번 방; 5번 방에서 발견</strong><p>값 30, 62, 50을 차례로 비교합니다.</p></div></details>
+    </article>
+<article class="question" id="q-17">
+      <div class="question-heading"><span class="number">17</span><h3>목표값이 4일 때 확인하는 방 번호를 순서대로 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-17">내 답안</label>
+      <textarea id="answer-17" data-answer="17" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>4 → 2 → 1번 방</strong><p>값 30, 12, 4를 차례로 비교합니다.</p></div></details>
+    </article>
+<article class="question" id="q-18">
+      <div class="question-heading"><span class="number">18</span><h3>목표값이 40일 때 확인하는 방 번호와 최종 결과를 쓰세요.</h3></div>
+      <label class="answer-label" for="answer-18">내 답안</label>
+      <textarea id="answer-18" data-answer="18" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>4 → 6 → 5번 방; 없음</strong><p>마지막에 start=5, end=4가 되어 종료합니다.</p></div></details>
+    </article>
+<article class="question" id="q-19">
+      <div class="question-heading"><span class="number">19</span><h3>이 배열에서 목표값을 찾거나 없다고 판단하기까지 값을 비교하는 횟수는 최대 몇 번인가요?</h3></div>
+      <label class="answer-label" for="answer-19">내 답안</label>
+      <textarea id="answer-19" data-answer="19" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>최대 3번</strong><p>7개의 원소를 탐색할 때 비교할 범위가 매번 줄어듭니다.</p></div></details>
+    </article>
+<article class="question" id="q-20">
+      <div class="question-heading"><span class="number">20</span><h3>배열을 [4, 12, 25, 70, 50, 62, 66]으로 바꾸고 같은 방법으로 50을 찾으면 어떻게 되나요? 그 결과가 생기는 이유를 설명하세요.</h3></div>
+      <label class="answer-label" for="answer-20">내 답안</label>
+      <textarea id="answer-20" data-answer="20" rows="3" placeholder="여기에 생각한 답을 적어 보세요."></textarea>
+      <details class="answer"><summary>정답 · 해설 보기</summary><div class="answer-body"><strong>50이 있어도 찾지 못합니다.</strong><p>첫 비교의 70 때문에 왼쪽만 탐색합니다. 이진 탐색에는 정렬된 배열이 필요합니다.</p></div></details>
+    </article></div></section>
+<p class="endnote">문제를 모두 푼 뒤에는 틀린 문제의 조건을 다시 읽고, 어떤 판단에서 달라졌는지 적어 보세요.</p></main></div>
+<footer class="footer">알고리즘 사고력 워크북 · 20문제</footer>
+<script>
+(() => {
+  const fields = [...document.querySelectorAll('textarea[data-answer]')];
+  const progressText = document.getElementById('progress-text');
+  const progressBar = document.getElementById('progress-bar');
+  const storageKey = n => `daeduck-workbook-v1-answer-${n}`;
+  const updateProgress = () => {
+    const count = fields.filter(field => field.value.trim().length > 0).length;
+    progressText.textContent = `${count} / ${fields.length}`;
+    progressBar.max = fields.length;
+    progressBar.value = count;
+  };
+  fields.forEach(field => {
+    try { field.value = localStorage.getItem(storageKey(field.dataset.answer)) || ''; } catch (_) {}
+    field.addEventListener('input', () => {
+      try { localStorage.setItem(storageKey(field.dataset.answer), field.value); } catch (_) {}
+      updateProgress();
+    });
+  });
+  updateProgress();
+  const toggle = document.getElementById('toggle-answers');
+  const answers = [...document.querySelectorAll('details.answer')];
+  toggle.addEventListener('click', () => {
+    const open = !answers.every(item => item.open);
+    answers.forEach(item => { item.open = open; });
+    toggle.textContent = open ? '정답 모두 접기' : '정답 모두 펼치기';
+  });
+})();
+</script></body></html>
