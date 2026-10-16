@@ -75,6 +75,7 @@ def main():
         soup.select_one('h1').clear();soup.select_one('h1').append(f'알고리즘 사고력 워크북 · {number}세트')
         for old in soup.select('.workbook-section'):old.decompose()
         main=soup.select_one('main');main.append(BeautifulSoup(''.join(parts),'html.parser'))
+        for note in main.select('.endnote'):main.append(note.extract())
         for a,title in zip(soup.select('.sidebar nav a'),BeautifulSoup(''.join(parts),'html.parser').select('.section-heading h2')):a.string=title.get_text()
         for a in soup.select('.hero-actions a[download]'):a.decompose()
         soup.select_one('.footer').string=f'알고리즘 사고력 워크북 · {number}세트 · 20문제 · 자체 제작 연습 문제'

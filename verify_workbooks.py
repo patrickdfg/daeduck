@@ -3,7 +3,7 @@ import subprocess,itertools
 from bs4 import BeautifulSoup
 from build_workbook_sets import set2,set3,trace
 root=Path(__file__).resolve().parent
-base=BeautifulSoup(subprocess.check_output(['git','show','HEAD:workbook.html'],cwd=root),'html.parser')
+base=BeautifulSoup(subprocess.check_output(['git','show','69b8b36:workbook.html'],cwd=root),'html.parser')
 now=BeautifulSoup((root/'workbook.html').read_text(encoding='utf-8'),'html.parser')
 assert [q.get_text(' ',strip=True) for q in base.select('.question')]==[q.get_text(' ',strip=True) for q in now.select('.question')]
 assert 'daeduck-workbook-v1-answer-' in str(now)
