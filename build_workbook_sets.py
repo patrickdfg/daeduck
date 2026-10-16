@@ -36,18 +36,8 @@ def search_section(arr,targets):
     return section(3,'이진 탐색과 경계값','방 번호, 탐색 범위와 비교 횟수를 추적합니다.',ref,q,14)
 
 def set2():
-    books=[(1,180,6000,'가능'),(2,220,5000,'가능'),(3,200,7000,'가능'),(4,120,7500,'가능'),(5,160,6500,'대출중'),(6,140,6800,'가능')]
-    ref='<h3>자료: 독서 모임의 책 고르기</h3><p>1번부터 순서대로 살펴봅니다. <b>200쪽 이하, 가격 7,000원 이하, 대출 상태가 ‘가능’</b>인 책을 만나면 고르고 즉시 종료합니다. 끝까지 없으면 ‘없음’을 출력합니다.</p>'+table(['번호','쪽수','가격(원)','대출 상태'],books)
-    valid=lambda rows:[r[0] for r in rows if r[1]<=200 and r[2]<=7000 and r[3]=='가능']
-    assert valid(books)==[1,3,6]
-    qs=[('책을 고르는 조건을 AND로 연결해 쓰세요.','쪽수 ≤ 200 AND 가격 ≤ 7000 AND 상태 = 가능','세 조건을 동시에 만족해야 합니다.'),('조건을 만족하는 책의 번호를 모두 쓰세요.','1, 3, 6번','2번은 쪽수, 4번은 가격, 5번은 대출 상태가 기준에 맞지 않습니다.'),('알고리즘이 고르는 번호와 확인한 책의 수를 쓰세요.','1번 / 1권','모든 후보 중 가장 싼 책을 고르는 것이 아니라, 첫 번째로 조건을 만족하는 책을 고릅니다.'),('1번 책의 상태만 ‘대출중’으로 바꾸면 무엇을 고르며 몇 권을 확인하나요?','3번 / 3권','1번과 2번을 제외한 뒤 경계값을 포함하는 3번을 고릅니다.'),('조건의 AND를 모두 OR로 바꾸면 잘못 고를 수 있는 책의 예와 이유를 쓰세요.','예: 2번. 쪽수는 넘지만 가격과 상태 조건이 맞아 통과합니다.','OR는 조건 하나만 맞아도 참입니다. 원래 세 조건을 모두 만족해야 한다는 규칙과 다릅니다.'),('조건에 맞는 책 중 가장 싼 책을 고르려면 즉시 종료해도 되나요? 이 목록의 정답과 바꿀 방법을 쓰세요.','즉시 종료하면 안 됩니다. 정답은 1번(6,000원)이며, 끝까지 확인하며 최소 가격 후보를 갱신합니다.','이번 목록에서는 첫 후보가 우연히 가장 싸지만, 이후 책이 더 쌀 수 있으므로 모든 적격 후보를 비교해야 합니다.')]
-    cond=lambda p:p.index('A')==2 and p.index('A')==p.index('D')+1 and p.index('B')<p.index('D') and p.index('E')<p.index('C')<p.index('F')
-    answers=[''.join(p) for p in itertools.permutations('ABCDEF') if cond(p)];assert answers==['BDAECF']
-    relaxed=[''.join(p) for p in itertools.permutations('ABCDEF') if p.index('A')==p.index('D')+1 and p.index('B')<p.index('D') and p.index('E')<p.index('C')<p.index('F')]
-    ref2='<h3>자료: 여섯 명의 발표 순서</h3><p>A~F가 한 번씩 발표합니다. 동시 발표는 없습니다.</p><ol class="conditions"><li>A는 세 번째로 발표한다.</li><li>D는 A 바로 앞에 발표한다.</li><li>B는 D보다 먼저 발표한다.</li><li>E는 C보다 먼저, C는 F보다 먼저 발표한다.</li></ol>'
-    order=[('A와 D는 각각 몇 번째인가요?','A는 3번째, D는 2번째','‘바로 앞’은 두 순서가 붙어 있다는 뜻입니다.'),('B는 몇 번째인가요?','1번째','D가 두 번째이고 B는 D보다 빨라야 합니다.'),('모든 조건을 만족하는 발표 순서를 쓰세요.','B → D → A → E → C → F','남은 4~6번째를 E, C, F 순서로 채웁니다.'),('B-D-A-C-E-F는 어떤 조건을 어기나요?','E가 C보다 먼저여야 한다는 조건','A, D, B의 위치는 맞지만 C와 E의 순서가 뒤집혔습니다.'),('A가 세 번째라는 조건만 없애면 가능한 발표 순서는 모두 몇 개인가요? 어떻게 셀 수 있나요?',f'{len(relaxed)}개','B-D-A의 내부 순서(DA는 붙임)와 E-C-F의 내부 순서를 지키며 배치합니다. DA를 한 묶음으로 보면 B,DA 두 항목과 E,C,F 세 항목을 섞는 경우로 5개 자리 중 2개를 고르는 10가지입니다.'),('원래 조건에 ‘F가 E보다 먼저 발표한다’를 더하면 가능한 순서가 있나요?','없습니다.','E < C < F와 F < E가 동시에 필요하므로 순서가 한 바퀴 도는 모순이 생깁니다.'),('‘D는 A 바로 앞’ 대신 ‘D는 A보다 먼저’로 완화하면 D가 반드시 두 번째인가요?','예, 이 조건들에서는 반드시 두 번째입니다.','A가 세 번째라 D는 1·2번째 중 하나입니다. B가 D보다 먼저여야 하므로 D는 첫 번째가 될 수 없습니다.')]
-    assert len(relaxed)==10
-    return [section(1,'조건 판단과 탐색 전략','모두 만족하기, 하나라도 만족하기와 첫 후보/최적 후보를 구분합니다.',ref,qs,1),section(2,'발표 순서 추론','자리 고정, 바로 앞, 선후 관계와 모순을 확인합니다.',ref2,order,7),search_section([3,8,14,21,29,36,45,57,68],[57,3,30])]
+    from workbook_set2_content import build_set2
+    return build_set2(table,section)
 
 def set3():
     ref='<h3>자료: 배달 로봇의 꾸러미 적재</h3><p>가벼운 순서가 아니라 아래 번호 순으로 확인합니다. 최대 적재 무게는 <b>10kg</b>입니다. 현재 합계에 꾸러미 무게를 더했을 때 10kg 이하이면 싣고, 초과하면 건너뛰어 다음 번호를 확인합니다. 5개를 끝까지 확인하며, 처음 무게 합계는 0입니다.</p>'+table(['번호','무게(kg)'],[(1,4),(2,7),(3,3),(4,2),(5,1)])
@@ -138,12 +128,17 @@ def main():
         for a,title in zip(soup.select('.sidebar nav a'),BeautifulSoup(''.join(parts),'html.parser').select('.section-heading h2')):a.string=title.get_text()
         for a in soup.select('.hero-actions a[download]'):a.decompose()
         soup.select_one('.footer').string=f'알고리즘 사고력 워크북 · {number}세트 · 20문제 · 자체 제작 연습 문제'
+        if number==2:
+            soup.head.append(BeautifulSoup('<style>.answer-body{overflow-wrap:anywhere}.question-heading h3{min-width:0;overflow-wrap:anywhere}</style>','html.parser'))
+            soup.select_one('.intro p').string='격자 경로 찾기, 문자열 압축, 큐·스택을 다루는 개정 2세트입니다. 이전 2세트와 문제가 달라 답안을 새로 구분해 저장합니다. 기존 답안 데이터는 삭제하지 않습니다.'
+            soup.select_one('.hero p').string='이진 탐색 대신 격자에서 경로를 찾고, 정보를 묶어 표현하며, 대기줄과 실행 취소를 추적하는 20문제입니다.'
         if number==4:
             soup.select_one('.intro p').string='설명회 사진의 순서도·조건 추론·의사코드 유형을 참고한 자체 제작 연습입니다. 답을 쓴 뒤 결론 → 조건 근거 → 실행 과정 → 검산 순서로 30~60초 동안 말해 보세요.'
             soup.select_one('.hero p').string='순서도 빈칸, 잘못된 순서의 조건, 1번 방부터 시작하는 이진 탐색을 설명하는 20문제입니다. 계산 결과뿐 아니라 판단 근거도 말해 보세요.'
             soup.head.append(BeautifulSoup('<style>.diagram-scroll{overflow-x:auto}.flow-diagram{width:100%;min-width:580px;max-width:650px;display:block;margin:18px auto}.reference pre{white-space:pre;overflow:auto;background:#f1f7f8;padding:16px;font:13px/1.8 Consolas,monospace;color:#18334d}.oral-tip{border-left:4px solid #008f8b;padding:10px 14px;background:#f1f7f8}</style>','html.parser'))
         for script in soup.select('script'):
-            script.string=script.get_text().replace('daeduck-workbook-v1-answer-',f'daeduck-workbook-set{number}-v1-answer-')
+            version=2 if number==2 else 1
+            script.string=script.get_text().replace('daeduck-workbook-v1-answer-',f'daeduck-workbook-set{number}-v{version}-answer-')
         soup.body.insert(1,BeautifulSoup(navigation(number),'html.parser'))
         soup.head.append(BeautifulSoup('<style>'+STYLE+'</style>','html.parser'))
         (ROOT/f'workbook-set{number}.html').write_text(str(soup),encoding='utf-8')

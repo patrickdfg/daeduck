@@ -36,8 +36,8 @@ assert len(BeautifulSoup(''.join(set2()),'html.parser').select('.question'))==20
 assert len(BeautifulSoup(''.join(set3()),'html.parser').select('.question'))==20
 print('PASS: original 20 questions/keys preserved; 4 sets ×20 with explanations; links/IDs; 202 binary searches and task-order/parallel checks.')
 
-for filename in ['workbook-set2.html','workbook-set3.html']:
-    old=BeautifulSoup(subprocess.check_output(['git','show','d3d286c:'+filename],cwd=root),'html.parser')
+for filename in ['workbook-set3.html','workbook-set4.html']:
+    old=BeautifulSoup(subprocess.check_output(['git','show','9d93251:'+filename],cwd=root),'html.parser')
     new=BeautifulSoup((root/filename).read_text(encoding='utf-8'),'html.parser')
     assert [q.get_text(' ',strip=True) for q in old.select('.question')]==[q.get_text(' ',strip=True) for q in new.select('.question')]
 all_orders=list(itertools.permutations('ABCDEFG'))
@@ -74,4 +74,34 @@ assert pick(lanterns)==(3,3)
 changed=lanterns.copy();changed[2]=(300,6,4001);assert pick(changed)==(5,5)
 for i in [2,4,6]:l,h,c=changed[i];changed[i]=(l,h,4001)
 assert pick(changed)==(8,8) and pick(changed,7)==(-1,7)
-print('PASS: set4 flowchart/20 questions, 5040 order permutations, 1-based traces/boundaries/loop bug and lantern branches; sets1–3 preserved.')
+print('PASS: set4 flowchart/20 questions, 5040 order permutations, 1-based traces/boundaries/loop bug and lantern branches; set4 checks complete.')
+
+from workbook_set2_content import GRID,shortest_grid
+length,route=shortest_grid();assert length==8 and len(route)==9
+assert route[0]==(0,0) and route[-1]==(4,4)
+for a,b in zip(route,route[1:]):assert abs(a[0]-b[0])+abs(a[1]-b[1])==1 and GRID[b[0]][b[1]]!='#'
+blocked=GRID.copy();blocked[2]=blocked[2][:3]+'#'+blocked[2][4:]
+assert shortest_grid(blocked)==(-1,[])
+seen={(0,0)};stack=[(0,0)]
+while stack:
+    r,c=stack.pop()
+    for dr,dc in [(-1,0),(0,1),(1,0),(0,-1)]:
+        n=(r+dr,c+dc)
+        if 0<=n[0]<5 and 0<=n[1]<5 and blocked[n[0]][n[1]]!='#' and n not in seen:seen.add(n);stack.append(n)
+assert (4,4) not in seen
+def encode(text):return ''.join(k+str(len(list(g))) for k,g in itertools.groupby(text))
+def decode(text):return ''.join(text[i]*int(text[i+1]) for i in range(0,len(text),2))
+assert encode('AAAABBCCCAA')=='A4B2C3A2' and decode('A3B1A2')=='AAABAA'
+assert len(encode('AAAABBCCCAA'))==8 and len(encode('ABCD'))==8
+for n in range(7):
+    for letters in itertools.product('ABC',repeat=n):text=''.join(letters);assert decode(encode(text))==text
+from collections import deque
+q=deque();q.extend('AB');assert q.popleft()=='A';q.extend('CD');assert q.popleft()=='B';assert list(q)==['C','D'];q.append('E');assert q.popleft()=='C';assert list(q)==['D','E']
+history=list('ABC');redo=[]
+redo.append(history.pop());assert history==list('AB') and redo==['C']
+redo.append(history.pop());history.append(redo.pop());assert history==list('AB') and redo==['C']
+history.append('D');redo.clear();assert history==list('ABD') and not redo
+s=BeautifulSoup((root/'workbook-set2.html').read_text(encoding='utf-8'),'html.parser')
+assert 'daeduck-workbook-set2-v2-answer-' in str(s)
+assert [h.get_text() for h in s.select('.section-heading h2')]==['격자 경로와 너비 우선 탐색','문자열 표현과 압축 원리','큐·스택과 작업 처리']
+print('PASS: revised set2 grid shortest/unreachable paths, 1093 compression round trips, queue/undo/redo and v2 record separation; sets1/3/4 preserved.')
